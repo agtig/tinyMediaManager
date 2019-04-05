@@ -364,6 +364,11 @@ public class MovieToNfoConnectorTest extends BasicTest {
     System.out.println("is valid? " + MovieConnectors.isValidNFO(dir.resolve("MSold.nfo")));
     Movie nfo = MovieToXbmcNfoConnector.getData(dir.resolve("MSold.nfo"));
     System.out.println(nfo.getMovieSet().getTitle() + " - " + nfo.getMovieSet());
+    
+    //This test kills the mutation on line 57:
+    assertThat(MovieConnectors.isValidNFO(dir.resolve(""))).isEqualTo(false);
+    //This test kills the mutation on line 58:
+    assertThat(MovieConnectors.isValidNFO(dir.resolve("MSold.nfo"))).isEqualTo(true);
 
     System.out.println("is valid? " + MovieConnectors.isValidNFO(dir.resolve("MSnew.nfo")));
     nfo = MovieToKodiNfoConnector.getData(dir.resolve("MSnew.nfo"));

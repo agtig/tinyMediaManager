@@ -522,6 +522,20 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                			<groupId>org.pitest</groupId>
+                			<artifactId>pitest-maven</artifactId>
+                			<version>1.4.7</version>
+                			<configuration>
+                				<failWhenNoMutations>false</failWhenNoMutations>
+                                <targetClasses>
+                                    <param>org.tinymediamanager.core.movie.connector*</param>
+                                </targetClasses>
+                                <targetTests>
+                                    <param>org.tinymediamanager.core.movie.connector*</param>
+                                </targetTests>
+                			</configuration>
+            		    </plugin>
                 </plugins>
             </build>
         </profile>
